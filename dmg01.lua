@@ -110,8 +110,7 @@ uniform vec3 COLOR_MASKS[ 4 ];
 
 vec4 effect(vec4 color, Image texture, vec2 texture_coords, vec2 pixel_coords){
 			vec4 pixel = Texel(texture, texture_coords);
-//			float avg = max(0, ((pixel.r + pixel.g + pixel.b)/3)+value/10);
-			float avg = (pixel.r + pixel.g + pixel.b)/3;
+			float avg = min(0.9999,max(0.0001,(pixel.r + pixel.g + pixel.b)/3));
 			int index = int(avg*4);
 
 			pixel.r = COLOR_MASKS[index][0];
