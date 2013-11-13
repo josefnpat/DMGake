@@ -67,12 +67,12 @@ function love.keypressed(key)
   if key == "h" then
     help = not help
   elseif key == "up" then
-    if dmg.scale*2 <= dmg.scale_max then
-      dmg:setScale(dmg.scale*2)
+    if dmg.scale + 1 <= dmg.scale_max then
+      dmg:setScale(dmg.scale + 1)
     end
   elseif key == "down" then
-    if dmg.scale/2 >= dmg.scale_min then
-      dmg:setScale(dmg.scale/2)
+    if dmg.scale - 1 >= dmg.scale_min then
+      dmg:setScale(dmg.scale - 1)
     end
   elseif key == "left" then
     dmg.current_palette = dmg.current_palette - 1
