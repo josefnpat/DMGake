@@ -1,6 +1,6 @@
 math.randomseed(os.time())
 
-files_uri = love.filesystem.enumerate("images")
+files_uri = love.filesystem.getDirectoryItems("images")
 
 images = {}
 for i,v in pairs(files_uri) do

@@ -87,7 +87,7 @@ dmg01.palette[7] = {
 dmg01.current_palette = 1
 
 function dmg01.pre_draw()
-  love.graphics.setPixelEffect(dmg01.shader)
+  love.graphics.setShader(dmg01.shader)
   dmg01.shader:send('COLOR_MASKS',unpack(dmg01.palette[dmg01.current_palette].colors))
   love.graphics.push()
   love.graphics.scale(dmg01.scale)
@@ -99,10 +99,10 @@ end
 
 function dmg01.setScale(self,tscale)
   self.scale = tscale
-  love.graphics.setMode(self.w*self.scale,self.h*self.scale)
+  love.window.setMode(self.w*self.scale,self.h*self.scale)
 end
 
-dmg01.shader = love.graphics.newPixelEffect [[
+dmg01.shader = love.graphics.newShader [[
 
 extern number value;
 
